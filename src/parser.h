@@ -17,7 +17,6 @@ private:
     const Token& previous() const;
     const Token& advance();
     bool check(TokenType type) const;
-    bool checkNext(TokenType type) const;
     bool match(TokenType type);
     void consume(TokenType type, const std::string& message);
     void skipSeparators();
@@ -28,7 +27,8 @@ private:
     std::unique_ptr<Stmt> parsePrintStatement();
     std::unique_ptr<Stmt> parseIfStatement();
     std::unique_ptr<Stmt> parseWhileStatement();
-    std::unique_ptr<BlockStmt> parseBlock();
+    std::unique_ptr<BlockStmt> parseStatementsUntil(TokenType terminator);
+    std::unique_ptr<BlockStmt> parseStatementsUntilElseOrEnd();
 
     std::unique_ptr<Expr> parseExpression();
     std::unique_ptr<Expr> parseEquality();

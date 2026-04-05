@@ -1,0 +1,4 @@
+let x be 1;
+let y be 2;
+let z be x plus y times 10;
+print z;

@@ -58,55 +58,13 @@ void Lexer::scanToken() {
     case ')':
         addToken(TokenType::RightParen, ")");
         break;
-    case '{':
-        addToken(TokenType::LeftBrace, "{");
-        break;
-    case '}':
-        addToken(TokenType::RightBrace, "}");
-        break;
-    case '+':
-        addToken(TokenType::Plus, "+");
-        break;
-    case '-':
-        addToken(TokenType::Minus, "-");
-        break;
-    case '*':
-        addToken(TokenType::Star, "*");
-        break;
     case '/':
         if (match('/')) {
             while (!isAtEnd() && peek() != '\n') {
                 advance();
             }
         } else {
-            addToken(TokenType::Slash, "/");
-        }
-        break;
-    case '=':
-        if (match('=')) {
-            addToken(TokenType::EqualEqual, "==");
-        } else {
-            addToken(TokenType::Assign, "=");
-        }
-        break;
-    case '!':
-        if (!match('=')) {
-            throw std::runtime_error("Unexpected '!' at line " + std::to_string(line_));
-        }
-        addToken(TokenType::BangEqual, "!=");
-        break;
-    case '<':
-        if (match('=')) {
-            addToken(TokenType::LessEqual, "<=");
-        } else {
-            addToken(TokenType::Less, "<");
-        }
-        break;
-    case '>':
-        if (match('=')) {
-            addToken(TokenType::GreaterEqual, ">=");
-        } else {
-            addToken(TokenType::Greater, ">");
+            throw std::runtime_error("Use English keywords like 'over' instead of '/' at line " + std::to_string(line_));
         }
         break;
     case ';':
@@ -145,9 +103,15 @@ void Lexer::scanIdentifier() {
         advance();
     }
 
-    std::string text = source_.substr(start_, current_ - start_);
+    const std::string text = source_.substr(start_, current_ - start_);
     if (text == "let") {
         addToken(TokenType::Let, text);
+    } else if (text == "set") {
+        addToken(TokenType::Set, text);
+    } else if (text == "be") {
+        addToken(TokenType::Be, text);
+    } else if (text == "to") {
+        addToken(TokenType::To, text);
     } else if (text == "print") {
         addToken(TokenType::Print, text);
     } else if (text == "if") {
@@ -156,6 +120,34 @@ void Lexer::scanIdentifier() {
         addToken(TokenType::Else, text);
     } else if (text == "while") {
         addToken(TokenType::While, text);
+    } else if (text == "do") {
+        addToken(TokenType::Do, text);
+    } else if (text == "end") {
+        addToken(TokenType::End, text);
+    } else if (text == "is") {
+        addToken(TokenType::Is, text);
+    } else if (text == "not") {
+        addToken(TokenType::Not, text);
+    } else if (text == "less") {
+        addToken(TokenType::Less, text);
+    } else if (text == "than") {
+        addToken(TokenType::Than, text);
+    } else if (text == "greater") {
+        addToken(TokenType::Greater, text);
+    } else if (text == "or") {
+        addToken(TokenType::Or, text);
+    } else if (text == "equal") {
+        addToken(TokenType::Equal, text);
+    } else if (text == "plus") {
+        addToken(TokenType::Plus, text);
+    } else if (text == "minus") {
+        addToken(TokenType::Minus, text);
+    } else if (text == "times") {
+        addToken(TokenType::Times, text);
+    } else if (text == "over") {
+        addToken(TokenType::Over, text);
+    } else if (text == "negative") {
+        addToken(TokenType::Negative, text);
     } else {
         addToken(TokenType::Identifier, text);
     }

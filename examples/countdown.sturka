@@ -1,0 +1,8 @@
+let n be 5
+
+while n is greater than 0 do
+    print n
+    set n to n minus 1
+end
+
+print 0

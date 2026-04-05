@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(sturka
     src/main.cpp
+    src/jit_engine.cpp
     src/lexer.cpp
     src/parser.cpp
     src/interpreter.cpp

@@ -1,0 +1,16 @@
+let outer be 3
+let total be 0
+let inner be 0
+
+while outer is greater than 0 do
+    set inner to outer
+
+    while inner is greater than 0 do
+        set total to total plus inner
+        set inner to inner minus 1
+    end
+
+    set outer to outer minus 1
+end
+
+print total

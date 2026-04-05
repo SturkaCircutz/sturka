@@ -1,0 +1,11 @@
+let score be 91
+
+if score is greater than or equal to 90 do
+    print 1
+else
+    print 0
+end
+
+if score is not 100 do
+    print score
+end

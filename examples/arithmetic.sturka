@@ -1,0 +1,8 @@
+let a be 8
+let b be 3
+let mixed be a plus b times 2
+let grouped be (a plus b) times 2
+
+print mixed
+print grouped
+print 10 minus b

@@ -1,0 +1,10 @@
+let a be 0
+let b be 1
+let next be 0
+
+while b is less than 100 do
+    print b
+    set next to a plus b
+    set a to b
+    set b to next
+end
