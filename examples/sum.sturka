@@ -1,0 +1,13 @@
+let x = 5
+let total = 0
+
+while x > 0 {
+    total = total + x
+    x = x - 1
+}
+
+if total == 15 {
+    print(total)
+} else {
+    print(0)
+}
