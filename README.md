@@ -1,6 +1,6 @@
 # sturka
 
-`sturka` is a tiny interpreted language implemented in C++.
+`sturka` is a tiny programming language with a C++ prototype and a parallel Rust compiler track.
 
 Current features:
 
@@ -15,6 +15,7 @@ Current features:
 - two execution modes:
   interpreter mode
   JIT mode (`--jit`) that lowers the AST to C++ and compiles it just in time
+- a parallel Rust implementation lives in `rust/` and is intended to become the cleaner compiler core
 
 Example:
 
@@ -51,3 +52,9 @@ Run with JIT:
 The current JIT is a practical first step: it generates C++ from the parsed AST,
 builds a temporary DLL with `g++`, loads it, and executes the compiled code.
 That keeps the front-end stable while moving execution off the tree-walking interpreter.
+
+Project layout:
+
+- `src/`: original C++ implementation
+- `examples/`: shared `.sturka` programs
+- `rust/`: next-generation Rust implementation with a cleaner compiler pipeline
