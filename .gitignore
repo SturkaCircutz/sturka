@@ -5,3 +5,4 @@ build/
 CMakeFiles/
 CMakeCache.txt
 rust/target/
+c/sturka-c.exe
